@@ -36,6 +36,7 @@ class ChatBot(object):
 
         # Add the user's message to the context (i.e. the conversation)
         self.messages.append({"role": "user", "content": message})
+
         # Ask the model to complete the conversation.  That is, the
         # messages up to this point represent the conversation
         # where the last message in the list is the most recent
@@ -61,6 +62,7 @@ class ChatBot(object):
             # of the model) which helps in understanding how the model
             # responds to different inputs.
             temperature=0)
+
         # The completion of the messages is what the model thinks should
         # be the next part of the conversation.  As such, make sure
         # to add the response to the list of messages (which records the
@@ -75,9 +77,11 @@ class ChatBot(object):
         # Note: The cast to Any is needed because the type of completion
         #       is "Unknown".
         result = cast(Any, completion).choices[0].message.content
+
         # Update the conversation to include the assistant's response making
         # sure to specify the response is from the assistant.
         self.messages.append({"role": "assistant", "content": result})
+
         # The completion of the conversation up to this point is the chatbot's
         # response.
         return result
