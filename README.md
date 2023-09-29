@@ -23,7 +23,7 @@ To get started
 ## An Example Conversation
 
 ```
-[simple_chatbot]% poetry run python3 simple_chatbot/main.py
+$ pdm run start
 You are chatting with a helpful assistant.  To stop the conversation press Ctrl+C.
 [You] Hi
 [Assistant] Hello! How can I assist you today?
